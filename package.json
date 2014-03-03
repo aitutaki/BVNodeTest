@@ -1,0 +1,17 @@
+{
+  "name": "BVNodeTest",
+  "version": "0.1.0",
+  "author": "TC",
+  "description": "BVNodeTest",
+  "scripts": {
+    "test": "make test"
+  },
+  "dependencies": {
+    "chai": "~1.4.2",
+    "mocha": "*"
+  },
+  "engines": {
+    "node": ">=0.8"
+  }
+}
+
