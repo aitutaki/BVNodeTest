@@ -1,35 +1,35 @@
-var expect = require('chai').expect;
+var assert = require('assert');
 var DAL = require("../dal.js");
+console.log("DAL is " + DAL);
 
-suite("BV Node Tests", function() {
+describe("DAL", function() {
 
-    test("Endpoint should be accessible", function() {
-		DAL.getData(function(data) {
-			expect(data).to.be.ok;
+	it("should have an accessible endpoint", function(done) {
+		DAL.getData(function(ok) {
+			assert.equal(true, ok);
+			done();
 		});
 	});
 
-	test("Should return a list of sports", function() {
+	it("Should return a list of sports", function(done) {
 		DAL.getSports(function(data) {
-			expect(data).to.be.ok;
-			expect(data).to.have.property("length");
-			expect(data.length).to.not.have.length(0);
+			assert(data, "No data returned.");
+			assert(data.length !== 0);
 		});
 	});
 
-	test("Should return a list of events for a given sport", function() {
+	it("Should return a list of events for a given sport", function(done) {
 		DAL.getEventsForSport(100, function(data) {
-			expect(data).to.be.ok;
-			expect(data).to.have.property("length");
-			expect(data.length)
+			assert(data, "No data returned.");
+			assert(data.length !== 0);
 		});
 	});
 
-	test("Should return a list of outcomes for a given event", function() {
-		DAL.getEventsOutcomes(100, 18831866800, function(data) {
-			expect(data).to.be.ok;
-			expect(data).to.have.property("length");
-			expect(data.length)
+	it("Should return a list of outcomes from a given event", function(done) {
+		DAL.getEventOutcomes(100, 18831866800, function(data) {
+			assert(data, "No data returned.");
+			assert(data.length !== 0);
 		});
 	});
+
 });
