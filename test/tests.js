@@ -4,10 +4,14 @@ console.log("DAL is " + DAL);
 
 describe("DAL", function() {
 
+	var urlOK = null;
+
 	it("should have an accessible endpoint", function(done) {
-		DAL.getData(function(ok) {
-			assert.equal(true, ok);
-			done();
+		assert.doesNotThrow(function() {
+			DAL.getData(function(ok) {
+				urlOK = ok;
+				done();			
+			});
 		});
 	});
 
@@ -15,6 +19,7 @@ describe("DAL", function() {
 		DAL.getSports(function(data) {
 			assert(data, "No data returned.");
 			assert(data.length !== 0);
+			done();
 		});
 	});
 
@@ -22,6 +27,7 @@ describe("DAL", function() {
 		DAL.getEventsForSport(100, function(data) {
 			assert(data, "No data returned.");
 			assert(data.length !== 0);
+			done();
 		});
 	});
 
@@ -29,6 +35,7 @@ describe("DAL", function() {
 		DAL.getEventOutcomes(100, 18831866800, function(data) {
 			assert(data, "No data returned.");
 			assert(data.length !== 0);
+			done();
 		});
 	});
 
