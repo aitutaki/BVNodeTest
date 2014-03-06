@@ -32,7 +32,7 @@ describe("DAL", function() {
 	});
 
 	it("Should return a list of outcomes from a given event", function(done) {
-		DAL.getEventOutcomes(100, 18831866800, function(data) {
+		DAL.getEventOutcomes(100, 216676210, function(data) {
 			assert(data, "No data returned.");
 			assert(data.length !== 0);
 			done();
