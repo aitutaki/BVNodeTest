@@ -47,6 +47,7 @@ var DAL = (function() {
 
 		function _failure(e) {
 			throw ((!!e && e.message) || "Unable to process request.");
+			cb(false);
 		}
 
 		// We could build content expiration into here
